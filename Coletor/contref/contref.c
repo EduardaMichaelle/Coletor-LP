@@ -2,9 +2,9 @@
 #include <stdlib.h>
 #include "contref.h"
 
-memory *ref_list=NULL; //variável global para a inicialização da lista de referência
+memory *ref_list=NULL; //variÃ¡vel global para a inicializaÃ§Ã£o da lista de referÃªncia
 
-void clearAll() //executa toda a lista removendo cada elemento para liberar espaço antes de terminar o programa
+void clearAll() //executa toda a lista removendo cada elemento para liberar espaÃ§o antes de terminar o programa
 {
     memory *aux=ref_list;
     while (aux!=NULL)
@@ -26,8 +26,8 @@ void printRefList() //executa toda a lista imprimindo seus elementos
     }
 }
 
-void updateReferenceList(memory *element, int counter)  //atualiza a quantidade de referências a um ponteiro
-
+void updateReferenceList(memory *element, int counter)  //atualiza a quantidade de referÃªncias a um ponteiro
+{
     element->counter += counter;
     if (element->counter == 0)
     {
@@ -50,8 +50,8 @@ void updateReferenceList(memory *element, int counter)  //atualiza a quantidade 
         free(element->adress);
         free(element);
     }
-
-void *malloc2(int size_) //ponteiro para um espaço de memória alocado e cria um elemento na lista de referência vinculada a este ponteiro
+}
+void *malloc2(int size_) //ponteiro para um espaÃ§o de memÃ³ria alocado e cria um elemento na lista de referÃªncia vinculada a este ponteiro
 {
     void *new_allocated_memory = (void *)malloc(size_);
     memory *new_reference_list_element = (memory *)malloc(sizeof(memory));
@@ -75,7 +75,7 @@ void *malloc2(int size_) //ponteiro para um espaço de memória alocado e cria um 
 }
 
 void atrib2(void **receiver, void *transmitter) //transferindo data de um ponteiro para outro
-{                                               //faz o controle das referências aos ponteiros
+{                                               //faz o controle das referÃªncias aos ponteiros
     if ((*receiver) != NULL)
     {
         memory *run_list = ref_list;
